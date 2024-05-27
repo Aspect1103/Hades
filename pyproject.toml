@@ -1,5 +1,5 @@
 [build-system]
-requires = ["poetry-core>=1.8.1", "setuptools>=69.0.2", "wheel>=0.42.0"]
+requires = ["poetry-core>=1.8.1", "conan>=2.3.1"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
@@ -177,6 +177,9 @@ select = ["ALL"]
     "D101",  # Ignore pydocstyle class docstring rule
     "D103",  # Ignore pydocstyle method docstring rule
     "PIE796",  # Ignore flake8-pie duplicate enum values rule
+]
+"src/hades_extensions/conanfile.py" = [
+    "INP001"  # Ignore flake8-no-pep420 implicit namespace package rule
 ]
 
 [tool.ruff.lint.pydocstyle]

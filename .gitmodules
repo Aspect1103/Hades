@@ -1,3 +1,0 @@
-[submodule "src/hades_extensions/vcpkg"]
-	path = src/hades_extensions/vcpkg
-	url = https://github.com/microsoft/vcpkg.git

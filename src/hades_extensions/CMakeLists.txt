@@ -5,7 +5,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake CACHE STRING "Vcpkg toolchain file")
+set(CMAKE_PROJECT_TOP_LEVEL_INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/cmake/conan_provider.cmake)
 
 # Define custom options
 set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage reporting for GCC/Clang")
@@ -25,7 +25,7 @@ include(CTest)
 find_package(Python COMPONENTS Interpreter Development REQUIRED)
 find_package(pybind11 CONFIG REQUIRED)
 find_package(GTest CONFIG REQUIRED)
-find_package(unofficial-chipmunk CONFIG REQUIRED)
+find_package(chipmunk2d CONFIG REQUIRED)
 
 # Set the warning level for the project
 if (MSVC)

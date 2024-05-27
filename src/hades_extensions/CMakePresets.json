@@ -8,51 +8,21 @@
     {
       "binaryDir": "${sourceDir}/build-debug",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "VCPKG_TARGET_TRIPLET": "x64-windows"
+        "CMAKE_BUILD_TYPE": "Debug"
       },
       "description": "Debug build",
       "generator": "Ninja",
-      "name": "WinDebug"
-    },
-    {
-      "cacheVariables": {
-        "VCPKG_TARGET_TRIPLET": "x64-mingw-dynamic"
-      },
-      "inherits": "WinDebug",
-      "name": "MinGWDebug"
-    },
-    {
-      "cacheVariables": {
-        "VCPKG_TARGET_TRIPLET": "x64-linux"
-      },
-      "inherits": "WinDebug",
-      "name": "LinuxDebug"
+      "name": "Debug"
     },
     {
       "binaryDir": "${sourceDir}/build-release",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
-        "ENABLE_COVERAGE": "OFF",
-        "VCPKG_TARGET_TRIPLET": "x64-windows"
+        "ENABLE_COVERAGE": "OFF"
       },
       "description": "Release build",
       "generator": "Ninja",
-      "name": "WinRelease"
-    },
-    {
-      "cacheVariables": {
-        "VCPKG_TARGET_TRIPLET": "x64-mingw-dynamic"
-      },
-      "inherits": "WinRelease",
-      "name": "MinGWRelease"
-    },
-    {
-      "cacheVariables": {
-        "VCPKG_TARGET_TRIPLET": "x64-linux"
-      },
-      "inherits": "WinRelease",
-      "name": "LinuxRelease"
+      "name": "Release"
     }
   ],
   "version": 3

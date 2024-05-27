@@ -44,16 +44,15 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        include:
-          - os: windows-latest
-            cmake-preset: WinDebug
-          - os: ubuntu-latest
-            cmake-preset: LinuxDebug
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.1.6
         with:
           submodules: recursive
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5.1.0
+        with:
+          python-version: 3.11
       - name: Set up MSVC
         uses: ilammy/msvc-dev-cmd@v1.13.0
       - name: Set up CMake
@@ -61,7 +60,8 @@ jobs:
       - name: Build CMake and run CTest
         working-directory: ${{ github.workspace }}/src/hades_extensions
         run: |
-          cmake -DDO_PYTHON=OFF --preset ${{ matrix.cmake-preset }}
+          pip install conan
+          cmake -DDO_PYTHON=OFF --preset Debug
           cmake --build build-debug
           ctest --output-on-failure --no-tests=error --test-dir ${{ github.workspace }}/src/hades_extensions/build-debug/tests
       - name: Generate the coverage report

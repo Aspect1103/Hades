@@ -199,10 +199,7 @@ python =
 commands =
     python -m build --cpp
     pytest --cov-append
-deps =
-    pytest-cov
-    setuptools
-    wheel
+deps = pytest-cov
 passenv = *
 
 [testenv:clean]

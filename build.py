@@ -42,6 +42,7 @@ class CMakeBuild(build_ext):  # type: ignore[misc]
         build_dir.mkdir(parents=True, exist_ok=True)
 
         # Compile and build the CMake extension
+        print(str(current_dir.joinpath(ext.sources[0])))
         subprocess.run(
             [
                 "cmake",
@@ -50,12 +51,16 @@ class CMakeBuild(build_ext):  # type: ignore[misc]
                 "-DDO_TESTS=OFF",
                 "--fresh",
                 "--preset",
-                f"{'WinRelease' if platform.system() == 'Windows' else 'LinuxRelease'}",
+                "Release",
             ],
             check=True,
         )
         subprocess.run(
-            ["cmake", "--build", "src/hades_extensions/build-release"],
+            [
+                "cmake",
+                "--build",
+                str(current_dir.joinpath(ext.sources[0])) + "/build-release",
+            ],
             check=True,
         )
 

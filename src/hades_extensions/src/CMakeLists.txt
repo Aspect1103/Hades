@@ -15,7 +15,7 @@ add_library(${CPP_LIB} STATIC
 )
 target_include_directories(${CPP_LIB} PUBLIC ${CMAKE_SOURCE_DIR}/include)
 target_include_directories(${CPP_LIB} PUBLIC ${chipmunk_SOURCE_DIR}/include)
-target_link_libraries(${CPP_LIB} PUBLIC unofficial::chipmunk::chipmunk)
+target_link_libraries(${CPP_LIB} PUBLIC chipmunk2d::chipmunk2d)
 
 # Create the Python module
 if (DO_PYTHON)

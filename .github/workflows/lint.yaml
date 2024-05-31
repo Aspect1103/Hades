@@ -14,11 +14,17 @@ jobs:
         uses: actions/checkout@v4.1.6
         with:
           submodules: recursive
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5.1.0
+        with:
+          python-version: "3.11"
       - name: Set up CMake
         uses: lukka/get-cmake@v3.29.3
       - name: Configure CMake
         working-directory: ${{ github.workspace }}/src/hades_extensions
-        run: cmake --preset LinuxDebug
+        run: |
+          pip install conan
+          cmake --preset Debug
       - name: Run clang-tidy
         working-directory: ${{ github.workspace }}/src/hades_extensions
         run: clang-tidy -p ./build-debug/compile_commands.json --extra-arg=-std=c++20 --quiet ./**/*.cpp ./**/*.hpp
